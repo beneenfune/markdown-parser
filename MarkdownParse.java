@@ -19,7 +19,7 @@ public class MarkdownParse {
             int openParen = markdown.indexOf("(", currentIndex);
             int closeParen = markdown.indexOf(")", openParen);
             
-            if (openParen == -1 || closeParen == -1) {
+            if (openBracket == -1 || openParen == -1 || openParen == -1 || closeParen == -1) {
                 break;
             }
             currentIndex = closeParen + 1;
@@ -29,7 +29,10 @@ public class MarkdownParse {
             }
 
             // System.out.println(closeParen);
-            toReturn.add(markdown.substring(openParen + 1, closeParen));
+            
+            if (markdown.substring(openParen + 1, closeParen).contains(".")) {
+                toReturn.add(markdown.substring(openParen + 1, closeParen));
+            }
 
             if (!checkFirst) {
                 firstVal = currentIndex;
