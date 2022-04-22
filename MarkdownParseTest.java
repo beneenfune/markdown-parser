@@ -111,9 +111,7 @@ public class MarkdownParseTest {
     public void test6() throws IOException {
       Path fileName = Path.of("tests/test-file6.md");
       String content = Files.readString(fileName);
-      ArrayList<String> exp = new ArrayList<>(){{
-        add("page.com");
-      }};
+      ArrayList<String> exp = new ArrayList<>();
       assertEquals(exp, MarkdownParse.getLinks(content));
     }
 
