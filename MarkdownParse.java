@@ -18,12 +18,17 @@ public class MarkdownParse {
             int closeBracket = markdown.indexOf("]", openBracket);
             int openParen = markdown.indexOf("(", currentIndex);
             int closeParen = markdown.indexOf(")", openParen);
+            
+            if (openParen == -1 || closeParen == -1) {
+                break;
+            }
             currentIndex = closeParen + 1;
 
             if (currentIndex == firstVal) {
                 break;
             }
 
+            // System.out.println(closeParen);
             toReturn.add(markdown.substring(openParen + 1, closeParen));
 
             if (!checkFirst) {
