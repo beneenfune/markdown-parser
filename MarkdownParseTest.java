@@ -61,7 +61,7 @@ public class MarkdownParseTest {
 
     @Test
     public void test1() throws IOException {
-      Path fileName = Path.of("markdown-parser/test-file.md");
+      Path fileName = Path.of("tests/test-file.md");
       String content = Files.readString(fileName);
       ArrayList<String> exp = new ArrayList<>(){{
         add("https://something.com");
@@ -72,7 +72,7 @@ public class MarkdownParseTest {
 
     @Test
     public void test2() throws IOException {
-      Path fileName = Path.of("markdown-parser/test-file2.md");
+      Path fileName = Path.of("tests/test-file2.md");
       String content = Files.readString(fileName);
       ArrayList<String> exp = new ArrayList<>(){{
         add("https://something.com");
@@ -83,7 +83,7 @@ public class MarkdownParseTest {
 
     @Test
     public void test3() throws IOException {
-      Path fileName = Path.of("markdown-parser/test-file3.md");
+      Path fileName = Path.of("tests/test-file3.md");
       String content = Files.readString(fileName);
       ArrayList<String> exp = new ArrayList<>();
       assertEquals(exp, MarkdownParse.getLinks(content));
@@ -91,7 +91,7 @@ public class MarkdownParseTest {
 
     @Test
     public void test4() throws IOException {
-      Path fileName = Path.of("markdown-parser/test-file4.md");
+      Path fileName = Path.of("tests/test-file4.md");
       String content = Files.readString(fileName);
       ArrayList<String> exp = new ArrayList<>();
       assertEquals(exp, MarkdownParse.getLinks(content));
@@ -99,7 +99,7 @@ public class MarkdownParseTest {
 
     @Test
     public void test5() throws IOException {
-      Path fileName = Path.of("markdown-parser/test-file5.md");
+      Path fileName = Path.of("tests/test-file5.md");
       String content = Files.readString(fileName);
       ArrayList<String> exp = new ArrayList<>(){{
         add("page.com");
@@ -109,7 +109,7 @@ public class MarkdownParseTest {
 
     @Test
     public void test6() throws IOException {
-      Path fileName = Path.of("markdown-parser/test-file6.md");
+      Path fileName = Path.of("tests/test-file6.md");
       String content = Files.readString(fileName);
       ArrayList<String> exp = new ArrayList<>(){{
         add("page.com");
@@ -119,7 +119,7 @@ public class MarkdownParseTest {
 
     @Test
     public void test7() throws IOException {
-      Path fileName = Path.of("markdown-parser/test-file7.md");
+      Path fileName = Path.of("tests/test-file7.md");
       String content = Files.readString(fileName);
       ArrayList<String> exp = new ArrayList<>();
       assertEquals(exp, MarkdownParse.getLinks(content));
@@ -127,7 +127,7 @@ public class MarkdownParseTest {
 
     @Test
     public void test8() throws IOException {
-      Path fileName = Path.of("markdown-parser/test-file8.md");
+      Path fileName = Path.of("tests/test-file8.md");
       String content = Files.readString(fileName);
       ArrayList<String> exp = new ArrayList<>();
       assertEquals(exp, MarkdownParse.getLinks(content));
