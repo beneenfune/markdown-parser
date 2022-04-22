@@ -18,10 +18,10 @@ public class MarkdownParse {
             int closeParen = markdown.indexOf(")", openParen);
             toReturn.add(markdown.substring(openParen + 1, closeParen));
             currentIndex = closeParen + 1;
-        }
+        }//end while
 
         return toReturn;
-    }
+    }//end static
 
 
     public static void main(String[] args) throws IOException {
@@ -30,5 +30,5 @@ public class MarkdownParse {
         ArrayList<String> links = getLinks(content);
 	    System.out.println(links);
 
-    }
-}
+    }//end main
+}//end class
