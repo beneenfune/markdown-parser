@@ -11,39 +11,13 @@ public class MarkdownParse {
         ArrayList<String> toReturn = new ArrayList<>();
         // find the next [, then find the ], then find the (, then read link upto next )
         int currentIndex = 0;
-        boolean checkFirst = false;
-        int firstVal = -1;
         while(currentIndex < markdown.length()) {
-            int exclamation = markdown.indexOf("!", currentIndex);
             int openBracket = markdown.indexOf("[", currentIndex);
             int closeBracket = markdown.indexOf("]", openBracket);
-            int openParen = markdown.indexOf("(", currentIndex);
+            int openParen = markdown.indexOf("(", closeBracket);
             int closeParen = markdown.indexOf(")", openParen);
-            
-            // Break if it's an image (!()[]) format
-            if (openBracket - exclamation == 1 && exclamation != -1) {
-                break;
-            }
-
-            // Break if a bracket or paren is missing
-            if (openBracket == -1 || openParen == -1 || openParen == -1 || closeParen == -1) {
-                break;
-            }
+            toReturn.add(markdown.substring(openParen + 1, closeParen));
             currentIndex = closeParen + 1;
-
-            // Break if loop repeats over the MD file
-            if (currentIndex == firstVal) {
-                break;
-            }
-            
-            if (markdown.substring(openParen + 1, closeParen).contains(".")) {
-                toReturn.add(markdown.substring(openParen + 1, closeParen));
-            }
-
-            if (!checkFirst) {
-                firstVal = currentIndex;
-                checkFirst = true;
-            }
         }
 
         return toReturn;
