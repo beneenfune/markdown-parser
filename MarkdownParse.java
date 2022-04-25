@@ -26,7 +26,7 @@ public class MarkdownParse {
             currentIndex = closeParen + 1;
             
             // Don't add to toReturn if it's an image (!()[]) format
-            if (openBracket - exclamation != 1 || exclamation == -1) {
+            if (!markdown.substring(openParen + 1, closeParen).contains(" ") && (openBracket - exclamation != 1 || exclamation == -1)) {
                 toReturn.add(markdown.substring(openParen + 1, closeParen));
             }
         }
