@@ -11,6 +11,7 @@ public class MarkdownParseTest {
         assertEquals(2, 1 + 1);
     }
 
+    /*
     @Test
     public void testGetLinks1() throws IOException {
       Path fileName = Path.of("test-file.md");
@@ -21,6 +22,7 @@ public class MarkdownParseTest {
       }};
       assertEquals(exp, MarkdownParse.getLinks(content));
     }
+    */
 
     @Test
     public void testGetLinks2() throws IOException {
@@ -133,6 +135,31 @@ public class MarkdownParseTest {
     //   assertEquals(exp, MarkdownParse.getLinks(content));
     // }
 
+    @Test
+    public void testSnippet1() throws IOException {
+      Path fileName = Path.of("snippet1.md");
+      String content = Files.readString(fileName);
+      ArrayList<String> exp = new ArrayList<>();
+      assertEquals(exp, MarkdownParse.getLinks(content));
+      //assertEquals(exp, toReview.getLinks(content));
+    }
 
+    @Test
+    public void testSnippet2() throws IOException {
+      Path fileName = Path.of("snippet2.md");
+      String content = Files.readString(fileName);
+      ArrayList<String> exp = new ArrayList<>();
+      assertEquals(exp, MarkdownParse.getLinks(content));
+      //assertEquals(exp, toReview.getLinks(content));
+    }
+
+    @Test
+    public void testSnippet3() throws IOException {
+      Path fileName = Path.of("snippet3.md");
+      String content = Files.readString(fileName);
+      ArrayList<String> exp = new ArrayList<>();
+      assertEquals(exp, MarkdownParse.getLinks(content));
+      //assertEquals(exp, toReview.getLinks(content));
+    }
 }
 
