@@ -10,22 +10,28 @@ import java.util.Map;
 
 public class MarkdownParse {
 
-    static int findCloseParen(String markdown, int openParen) {
-        int closeParen = openParen + 1;
-        int openParenCount = 1;
-        while (openParenCount > 0 && closeParen < markdown.length()) {
-            if (markdown.charAt(closeParen) == '(') {
-                openParenCount++;
-            } else if (markdown.charAt(closeParen) == ')') {
-                openParenCount--;
+    public static ArrayList<String> getLinks(String markdown) {
+        ArrayList<String> toReturn = new ArrayList<>();
+        // find the next [, then find the ], then find the (, then read link upto next )
+        int currentIndex = 0;
+        while(currentIndex < markdown.length()) {
+            int exclamation = markdown.indexOf("!", currentIndex);
+            int openBracket = markdown.indexOf("[", currentIndex);
+            int closeBracket = markdown.indexOf("]", openBracket);
+            int openParen = markdown.indexOf("(", closeBracket);
+            int closeParen = markdown.indexOf(")", openParen);
+
+            // Break if loop repeats over the MD file
+            if (openBracket == -1 || openParen == -1 || openParen == -1 || closeParen == -1) {
+                break;
             }
-            closeParen++;
-        }
-        if(openParenCount == 0) {
-          return closeParen - 1;
-        }
-        else {
-          return -1;
+
+            currentIndex = closeParen + 1;
+            
+            // Don't add to toReturn if it's an image (!()[]) format
+            if (!markdown.substring(openParen + 1, closeParen).contains(" ") && (openBracket - exclamation != 1 || exclamation == -1)) {
+                toReturn.add(markdown.substring(openParen + 1, closeParen));
+            }
         }
 
     }
