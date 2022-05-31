@@ -141,7 +141,6 @@ public class MarkdownParseTest {
       String content = Files.readString(fileName);
       ArrayList<String> exp = new ArrayList<>();
       assertEquals(exp, MarkdownParse.getLinks(content));
-      //assertEquals(exp, toReview.getLinks(content));
     }
 
     @Test
@@ -150,7 +149,6 @@ public class MarkdownParseTest {
       String content = Files.readString(fileName);
       ArrayList<String> exp = new ArrayList<>();
       assertEquals(exp, MarkdownParse.getLinks(content));
-      //assertEquals(exp, toReview.getLinks(content));
     }
 
     @Test
@@ -159,7 +157,6 @@ public class MarkdownParseTest {
       String content = Files.readString(fileName);
       ArrayList<String> exp = new ArrayList<>();
       assertEquals(exp, MarkdownParse.getLinks(content));
-      //assertEquals(exp, toReview.getLinks(content));
     }
 }
 
